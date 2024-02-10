@@ -11,5 +11,9 @@ module.exports = {
     },
   },
   // adds mui or daisyui plugins here
-  plugins: [],
+  plugins: [require("daisyui")],
+
+  daisyui: {
+    themes: ["bumblebee"],
+  },
 };
