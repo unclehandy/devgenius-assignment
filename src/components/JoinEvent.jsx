@@ -6,7 +6,7 @@ const handleJoin = () => alert(`${idEvent}`);
 
    return (
     <>
-        <button className="btn btn-primary" onClick={handleJoin}>Join This Event</button>
+        <button className="btn btn-sm  btn-primary" onClick={handleJoin}>Join This Event</button>
     </>
   )
 }
