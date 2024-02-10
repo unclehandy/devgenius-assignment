@@ -12,8 +12,10 @@ module.exports = {
   },
   // adds mui or daisyui plugins here
   plugins: [require("daisyui")],
+
   daisyui:{
     themes:["night"]
   }
+
 
 };
