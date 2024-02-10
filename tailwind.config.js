@@ -7,13 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // add extra themes here
+      
     },
   },
   // adds mui or daisyui plugins here
   plugins: [require("daisyui")],
 
-  daisyui: {
-    themes: ["bumblebee"],
-  },
+  daisyui:{
+    themes:["night"]
+  }
+
+
 };
