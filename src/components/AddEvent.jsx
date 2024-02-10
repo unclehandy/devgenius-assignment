@@ -12,7 +12,7 @@ export const AddEvent = () => {
     const userFromLs = localStorage.getItem("user");
     const parseUserData = JSON.parse(userFromLs);
     setUser(parseUserData);
-    const author = user.id;
+    // const author = user.id;
 
     async function handleAddEvent () {
 
