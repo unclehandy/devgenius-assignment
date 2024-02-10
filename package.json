@@ -9,15 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^1.6.7",
+    "boring-avatars": "^1.10.1",
+    "jose": "^5.2.0",
+    "js-cookie": "^3.0.5",
+    "lucide-react": "^0.320.0",
+    "next": "14.1.0",
     "react": "^18",
+    "react-bootstrap-sweetalert": "^5.2.0",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
+    "daisyui": "^4.6.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0"
   }
 }
