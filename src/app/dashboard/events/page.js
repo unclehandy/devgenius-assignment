@@ -1,8 +1,8 @@
 
-import { AddEvent, ButtonAddEvent } from '@/components/ButtonAddEvent';
+
+import { ButtonAddEvent } from '@/components/ButtonAddEvent';
 import { ListEvents } from '@/components/ListEvents'
 import { Search } from '@/components/Search';
-import React from 'react'
 
 async function getDataEvents () {
     const res = await fetch('https://eventmakers-api.fly.dev/events/', {
@@ -18,9 +18,11 @@ export default async function page() {
 
   return (
     <div>
-        <Search />
-        {/* <ButtonAddEvent /> */}
-        <ListEvents dataEvents={data} />
+
+          <Search />
+          <ButtonAddEvent />
+          <ListEvents dataEvents={data} />
+
     </div>
   )
 }
