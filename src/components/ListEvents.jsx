@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const ListEvents = ({ dataEvents }) => {
   const dataEventsFilter = dataEvents.filter(function (itemFilter) {
-    return itemFilter.events.author == "ds_v3jTVjbKWukzTUd"
+    return  itemFilter.events.author == "ds_v3jTVjbKWukzTUd" || itemFilter.events.author == "ds_MqBbtrypLFQ6X3P" || itemFilter.events.author == "ds_FPFzoy8P0wqCDBl"
   })
 
 
