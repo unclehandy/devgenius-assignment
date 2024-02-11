@@ -6,6 +6,7 @@ import { Search } from '@/components/Search';
 import Header from '@/components/header/page';
 
 
+
 async function getDataEvents () {
     const res = await fetch('https://eventmakers-api.fly.dev/events/', {
       cache: "no-cache",
@@ -23,6 +24,7 @@ export default async function page() {
 
   return (
     <div>
+
       <Search />
       <Header />
 
@@ -32,6 +34,7 @@ export default async function page() {
         <h1 className='text-slate-200 text-2xl mt-8 px-4 font-light '>Latest Cool Event</h1>
        <ListEvents dataEvents={data} />  
       </div> 
+
     </div>
   )
 }

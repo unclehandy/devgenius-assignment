@@ -25,7 +25,7 @@ export default async function Page({params}) {
   
     <main >
 
-      <div className="flex flex-row justify-items-center p-4 w-3/4 gap-8 m-auto self-center justify-center " key={detailEvent.data.events.id}>
+      <div key={detailEvent.data.events.id} className="flex flex-row justify-items-center p-4 w-3/4 gap-8 m-auto self-center justify-center">
         <div className="flex flex-col gap-8">
         <div className="w-[500px]">
             <Image src={detailEvent.data.events.image} 
@@ -48,7 +48,7 @@ export default async function Page({params}) {
               <h2 className="card-title">{detailEvent.data.events.title}</h2>
               <p>{detailEvent.data.events.dateTime}</p>
               <JoinEvent idEvent={idEvent}/>
-              <div className="btn btn-sm btn-primary"><Link href={"/events/"}>Kembali</Link></div>
+              <div className="btn btn-sm btn-primary"><Link href={"/dashboard/events/"}>Kembali</Link></div>
               <div className="border-t-2 flex gap-4 py-2 items-center ">              
                 <Image src="/icon.png" width={30} height={25} alt="logo-author" />
                 <div>
