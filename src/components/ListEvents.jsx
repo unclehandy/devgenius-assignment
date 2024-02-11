@@ -26,7 +26,7 @@ export const ListEvents = ({ dataEvents }) => {
             <div className='card-body space-y-2'>
               <h2 className='card-title'> {item.events.title}</h2>
               <p> {item.events.dateTime}</p>
-              <div className="btn btn-primary"><Link href={`/events/${item.events.id}`}>Detail Event</Link></div>
+              <div className="btn btn-primary"><Link href={`/dashboard/events/${item.events.id}`}>Detail Event</Link></div>
               <div className="border-t-2 mt-10 flex gap-4 py-2 items-center">              
                 <Image src="/icon.png" width={30} height={25} alt="logo-author"/>
                 <p> {item.events.author}</p> 

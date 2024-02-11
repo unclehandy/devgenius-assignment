@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
 
   const menuList = [
     {label:"Home",src:"/dashboard/home",icon:<Home />},
-    {label:"Event",src:"/dashboard/event",icon:<Calendar />},
+    {label:"Event",src:"/dashboard/events",icon:<Calendar />},
     {label:"User",src:"/dashboard/user",icon:<User />},
   ]
 
