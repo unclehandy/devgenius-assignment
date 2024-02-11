@@ -19,7 +19,7 @@ export default async function page() {
   return (
     <div>
         <Search />
-        {/* <ButtonAddEvent /> */}
+        <ButtonAddEvent />
         <ListEvents dataEvents={data} />
     </div>
   )

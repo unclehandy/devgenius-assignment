@@ -9,11 +9,7 @@ export const AddEvent = () => {
     const [thumbnail, setThumbnail] = useState("");
     const [user, setUser] = useState(null);
 
-    const userFromLs = localStorage.getItem("user");
-    const parseUserData = JSON.parse(userFromLs);
-    setUser(parseUserData);
-    // const author = user.id;
-
+    
     async function handleAddEvent () {
 
     }

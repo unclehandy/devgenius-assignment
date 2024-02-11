@@ -25,7 +25,7 @@ export default async function Page({params}) {
   
     <main >
 
-      <div className="flex flex-row justify-items-center p-4 w-3/4 gap-8 m-auto self-center justify-center " key={detailEvent.data.events.id}>
+      <div key={detailEvent.data.events.id} className="flex flex-row justify-items-center p-4 w-3/4 gap-8 m-auto self-center justify-center " key={detailEvent.data.events.id}>
         <div className="flex flex-col gap-8">
         <div className="w-[500px]">
             <Image src={detailEvent.data.events.image} 
