@@ -7,16 +7,39 @@ export const AddEvent = () => {
     const [description, setDescription] = useState("");
     const [dateTime, setDateTime] = useState("");
     const [thumbnail, setThumbnail] = useState("");
+
+    //ambil value user id dari localstorage 
     const [user, setUser] = useState(null);
-
-
     useEffect(() => {
         const userFormLs = localStorage.getItem("user")
         const parseuser = JSON.parse(userFormLs)
         setUser(parseuser)
     }, [])    
 
+    async function handleUploadGambar (imageFile) {
+      const formData = new FormData();
+      formData.append ("file",imageFile);
+      formData.append ("upload_preset","gtqtwhs6");
+
+      const cloudinaryRes =  await fetch ("https://api.cloudinary.com/v1_1/dgt0nrylf/image/upload", 
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (cloudinaryRes.ok) {
+        return await cloudinaryRes.json();
+      } else {
+        throw new Error ("Gagal Upload Gambar Ke Cloudinary")
+      }
+    
+    }
+
+    
     async function handleAddEvent () {
+      const cloudinaryRes = await handleUploadGambar(thumbnail);
+      if (!cloudinaryRes ||)
 
     }
 
