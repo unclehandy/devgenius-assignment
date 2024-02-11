@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -15,7 +16,7 @@ export const ListEvents = ({ dataEvents }) => {
           return (
 
 
-          <div  className=" rounded-3xl m-4 w-[100] glass  shadow-sm  shadow-slate-950 border border-slate-800">
+          <div  key={item.events.id} className=" rounded-3xl m-4 w-[100] glass  shadow-sm  shadow-slate-950 border border-slate-800">
             <figure><Image className='hover:scale-105 transition duration-500  object-cover'
               src={item.events.image} 
               width={450}  

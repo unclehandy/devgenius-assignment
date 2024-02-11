@@ -1,8 +1,12 @@
 
-import { AddEvent, ButtonAddEvent } from '@/components/ButtonAddEvent';
+"use client"
+import { ButtonAddEvent } from '@/components/ButtonAddEvent';
 import { ListEvents } from '@/components/ListEvents'
 import { Search } from '@/components/Search';
-import React from 'react'
+import { createContext } from 'react'
+
+
+const Context = createContext()
 
 async function getDataEvents () {
     const res = await fetch('https://eventmakers-api.fly.dev/events/', {
