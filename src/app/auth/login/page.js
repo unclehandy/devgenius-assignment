@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from 'react';
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-import Swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 
 
@@ -46,7 +46,7 @@ export default function Login() {
 
                 if (status === 401 || status === 404) {
                   
-                    Swal({
+                    Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: data.message || 'Authentication failed!',
@@ -54,14 +54,14 @@ export default function Login() {
                 }
             } else if (error.request) {
                 
-                Swal({
+                Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'No response from the server!',
                 });
             } else {
                 
-                Swal({
+                Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'An unexpected error occurred!',

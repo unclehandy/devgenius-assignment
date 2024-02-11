@@ -46,7 +46,7 @@ export default async function user() {
                     <tbody>
                         {usersData.data?.map((item,index) => (
                             <tr key={item.id}>
-                                <th>{index + 1} </th>
+                                <th>{index + 1} {item.id} </th>
                                 <td>{item.name}</td>
                                 <td>{item.email}</td>
                             </tr>
