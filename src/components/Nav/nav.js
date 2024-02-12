@@ -23,9 +23,9 @@ export default function Nav() {
 
     return (
         <>
-            <div className="navbar bg-primary rounded-md">
+            <div className="navbar bg-amber-400 rounded-md">
                 <div className="flex-1">
-                    <div className="text-lg font-bold brand">
+                    <div className="text-xl font-bold text-slate-800">
                         Event Maker
                     </div>
                 </div>
