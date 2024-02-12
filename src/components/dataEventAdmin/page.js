@@ -24,25 +24,48 @@ export const DataEventAdmin = ({ dataEvents }) => {
 
 
     const handleDelete = async (id) => {
-        try {
-            const resEventsMaker = await fetch(`https://eventmakers-api.fly.dev/events/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRzX01xQmJ0cnlwTEZRNlgzUCIsIm5hbWUiOiJyb25hbCB5dWx5YW50byIsImVtYWlsIjoic3VyZWwucm9uYWxAZ21haWwuY29tIiwiYXZhdGFyIjpudWxsLCJpYXQiOjE3MDc2NDAzNjAsImV4cCI6MTcxODAwODM2MH0.eEyXTA8CFQK1durOGksUsGxeuxaay0tTqvqyA3yP8IY"
-                },
-            });
 
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              }).then(
+                async()=>{
+                    try {
+                        const resEventsMaker = await fetch(`https://eventmakers-api.fly.dev/events/${id}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRzX01xQmJ0cnlwTEZRNlgzUCIsIm5hbWUiOiJyb25hbCB5dWx5YW50byIsImVtYWlsIjoic3VyZWwucm9uYWxAZ21haWwuY29tIiwiYXZhdGFyIjpudWxsLCJpYXQiOjE3MDc2NDAzNjAsImV4cCI6MTcxODAwODM2MH0.eEyXTA8CFQK1durOGksUsGxeuxaay0tTqvqyA3yP8IY"
+                            },
+                        });
             
-                 await resEventsMaker.json();
-                console.log("Event deleted successfully:", dataEventAdd);
-                router.push('/');
-           
-        } catch (error) {
-            console.error(error);
-       
-        }
+                        
+                             await resEventsMaker.json();
+                            console.log("Event deleted successfully:");
+                            router.refresh();
+                       
+                    } catch (error) {
+                        console.error(error);
+                   
+                    }
+                }
+              );
+            }
+          });
+        
     }
+
+   
 
     return (
         <>
