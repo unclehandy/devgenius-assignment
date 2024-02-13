@@ -1,11 +1,9 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import Swal from 'sweetalert2'
-import axios from 'axios'
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import { ModalEditEvent } from '../ModalEditEvent'
 
 export const DataEventAdmin = ({ dataEvents }) => {
 
@@ -65,7 +63,7 @@ export const DataEventAdmin = ({ dataEvents }) => {
         
     }
 
-   
+    
 
     return (
         <>
@@ -84,7 +82,9 @@ export const DataEventAdmin = ({ dataEvents }) => {
                                 <h2 className="card-title text-amber-400">{shortenTitle(item.events.title, 20)}</h2>
                                 <p> {item.events.dateTime} {item.events.id}</p>
                                 <div className="card-actions justify-end">
-                                    <Link className="btn-primary btn btn-sm " href={''}>Edit</Link>
+                                    <button className="btn-primary btn btn-sm " 
+                                    onClick={() => document.getElementById("modalEditEvent").showModal()}>Edit</button>
+    <ModalEditEvent />
                                     <button className="btn btn-sm btn-accent " onClick={() => { handleDelete(item.events.id) }}>Hapus</button>
                                 </div>
 
