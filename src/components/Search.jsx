@@ -1,8 +1,15 @@
 "use client";
 import Link from "next/link";
 import { SearchResult } from "@/components/SearchResult";
+import { useEffect } from "react";
+import { useAtom } from "jotai";
+import { eventDataAtom } from "./Atom/EventDataAtom";
 
-export const Search = () => {
+export const Search = ({ dataEvents }) => {
+  const [allEventData, setDataEvents] = useAtom(eventDataAtom);
+
+  setDataEvents(dataEvents);
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">

@@ -9,20 +9,10 @@ export const SearchResult = () => {
   const [hoverStates, setHoverStates] = useState(Array(2).fill(false));
   const [allDataEvents] = useAtom(eventDataAtom);
 
-  const dataEventsFilter = allDataEvents.filter(function (itemFilter) {
-    return (
-      itemFilter.events.author == "ds_v3jTVjbKWukzTUd" ||
-      itemFilter.events.author == "ds_MqBbtrypLFQ6X3P" ||
-      itemFilter.events.author == "ds_FPFzoy8P0wqCDBl"
-    );
-  });
-
   const handleMouseEnter = (index) => {
     const newHoverStates = [...hoverStates];
     newHoverStates[index] = true;
     setHoverStates(newHoverStates);
-    console.log(index);
-    console.log(newHoverStates);
   };
 
   const handleMouseLeave = (index) => {
@@ -38,7 +28,7 @@ export const SearchResult = () => {
 
   return (
     <div className="rounded-xl w-[400px] absolute top-14 z-10 bg-slate-50 text-sm text-blue mt-2 flex-col space-y-2 max-h-60 overflow-y-scroll">
-      {dataEventsFilter.map((event, index) => {
+      {allDataEvents.map((event, index) => {
         return (
           <Link href={`/events/${event.events.id}`}>
             <div

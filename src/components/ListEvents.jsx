@@ -2,17 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
-import { useAtom } from "jotai";
-import { eventDataAtom } from "./Atom/EventDataAtom";
 
 export const ListEvents = ({ dataEvents }) => {
-  const [, setDataEvents] = useAtom(eventDataAtom);
-
-  useEffect(() => {
-    setDataEvents(dataEvents);
-  }, [dataEvents, setDataEvents]);
-
   const dataEventsFilter = dataEvents.filter(function (itemFilter) {
     return (
       itemFilter.events.author == "ds_v3jTVjbKWukzTUd" ||
