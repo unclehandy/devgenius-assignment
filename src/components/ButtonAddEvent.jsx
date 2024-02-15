@@ -1,5 +1,5 @@
 "use client"
-import { PlusCircle } from "lucide-react"
+
 import { ModalAddEvent } from "./ModalAddEvent"
 
 export const ButtonAddEvent = () => {

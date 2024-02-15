@@ -1,15 +1,14 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import Swal from 'sweetalert2'
-import axios from 'axios'
 import { useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
+import Link from 'next/link';
+
 
 export const DataEventAdmin = ({ dataEvents }) => {
-
+  
     const router = useRouter();
+
 
     const dataEventsFilter = dataEvents.filter(function (itemFilter) {
         return itemFilter.events.author == "ds_v3jTVjbKWukzTUd" || itemFilter.events.author == "ds_MqBbtrypLFQ6X3P" || itemFilter.events.author == "ds_FPFzoy8P0wqCDBl"
@@ -22,6 +21,8 @@ export const DataEventAdmin = ({ dataEvents }) => {
         return title.slice(0, lastSpaceIndex > 0 ? lastSpaceIndex : maxLength) + '...';
     };
 
+
+    
 
     const handleDelete = async (id) => {
 
@@ -65,15 +66,13 @@ export const DataEventAdmin = ({ dataEvents }) => {
         
     }
 
-   
-
     return (
         <>
             <main className="card lg:grid lg:grid-cols-4 gap-6 p-5">
-                {dataEventsFilter.map((item) => {
+                {dataEventsFilter.map((item, index) => {
                     return (
 
-                        <div className="card  bg-slate-800 shadow border border-slate-900 hover:scale-105 transition duration-500 overflow-hidden " key={item.events.id}>
+                        <div  key={item.events.id} className="card  bg-slate-800 shadow border border-slate-900 hover:scale-105 transition duration-500 overflow-hidden " key={item.events.id}>
                             <div className='w-full h-40 overflow-hidden '>
                                 <img
                                     src={item.events.image}
@@ -84,7 +83,9 @@ export const DataEventAdmin = ({ dataEvents }) => {
                                 <h2 className="card-title text-amber-400">{shortenTitle(item.events.title, 20)}</h2>
                                 <p> {item.events.dateTime} {item.events.id}</p>
                                 <div className="card-actions justify-end">
-                                    <Link className="btn-primary btn btn-sm " href={''}>Edit</Link>
+                                        <Link href={`/dashboard/events/edit/${item.events.id}`}> 
+                                            <button className="btn btn-info btn-sm">Edit</button>
+                                        </Link>
                                     <button className="btn btn-sm btn-accent " onClick={() => { handleDelete(item.events.id) }}>Hapus</button>
                                 </div>
 
