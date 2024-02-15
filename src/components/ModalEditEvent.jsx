@@ -1,11 +1,13 @@
-import React from 'react'
+
 import { EditEvent } from './EditEvent'
 
+export const ModalEditEvent = ({itemId}) => {
 
-export const ModalEditEvent = () => {
+
   return (
     <>
-        <dialog id="modalEditEvent" className=" modal">
+  
+     <dialog id="modalEditEvent" className="modal">
         <div className="modal-box lg:max-w-xl">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -14,11 +16,12 @@ export const ModalEditEvent = () => {
           </form>
           <div>
             <form method="dialog">
-             <EditEvent />
+              <EditEvent itemId={itemId} />
             </form>
           </div>
         </div>
-        </dialog>
+      </dialog>
     </>
   )
+
 }
