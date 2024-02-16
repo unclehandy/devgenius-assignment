@@ -1,21 +1,28 @@
 "use client";
 import Link from "next/link";
 import { SearchResult } from "@/components/SearchResult";
+import { useState, useEffect } from "react"; // Added useEffect
 import { useAtom } from "jotai";
 import { eventDataAtom } from "./Atom/EventDataAtom";
 
 export const Search = ({ dataEvents }) => {
   const [allEventData, setDataEvents] = useAtom(eventDataAtom);
+  const [searchInput, setSearchInput] = useState("");
+
+  // Added useEffect to handle changes in searchInput
+  useEffect(() => {
+    if (searchInput === "") {
+      setDataEvents(null);
+    } else {
+      const filteredDataEvents = dataEvents.filter((itemFilter) => {
+        return itemFilter.events.title.toLowerCase().includes(searchInput);
+      });
+      setDataEvents(filteredDataEvents);
+    }
+  }, [searchInput, setDataEvents, dataEvents]);
 
   const handleSearchInput = (value) => {
-    console.log(value.toLowerCase());
-    let searchInput = value.toLowerCase();
-
-    let filteredDataEvents = dataEvents.filter((itemFilter) => {
-      return itemFilter.events.title.toLowerCase().includes(searchInput);
-    });
-
-    setDataEvents(filteredDataEvents);
+    setSearchInput(value.toLowerCase());
   };
 
   return (
@@ -27,11 +34,10 @@ export const Search = ({ dataEvents }) => {
         <div className="form-control">
           <div className=" rounded-xl  p-2 gap-4 flex item-center relative">
             <input
-              className="rounded-xl w-[400px] text-center"
+              className="rounded-xl w-[400px] h-[40px] text-center"
               placeholder="Cari Event Name"
               onChange={(e) => handleSearchInput(e.target.value)}
             />
-            <button className="btn btn-md">Search</button>
             <SearchResult />
           </div>
         </div>

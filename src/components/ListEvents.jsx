@@ -2,16 +2,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { filterDataEventsByAuthors } from "@/lib/utils";
 
 export const ListEvents = ({ dataEvents }) => {
-  const dataEventsFilter = dataEvents.filter(function (itemFilter) {
-    return (
-      itemFilter.events.author == "ds_v3jTVjbKWukzTUd" ||
-      itemFilter.events.author == "ds_MqBbtrypLFQ6X3P" ||
-      itemFilter.events.author == "ds_FPFzoy8P0wqCDBl"
-    );
-  });
-
   const shortenTitle = (title, maxLength) => {
     if (title.length <= maxLength) return title;
     const lastSpaceIndex = title.lastIndexOf(" ", maxLength);
@@ -23,9 +16,12 @@ export const ListEvents = ({ dataEvents }) => {
   return (
     <>
       <main className="card lg:grid lg:grid-cols-5 gap-6 p-5">
-        {dataEventsFilter.map((item) => {
+        {dataEvents.map((item) => {
           return (
-            <div className="card  bg-slate-800 shadow border border-slate-900 hover:scale-105 transition duration-500 overflow-hidden ">
+            <div
+              key={item.events.id}
+              className="card  bg-slate-800 shadow border border-slate-900 hover:scale-105 transition duration-500 overflow-hidden "
+            >
               <div className="w-full h-40 overflow-hidden ">
                 <img
                   src={item.events.image}

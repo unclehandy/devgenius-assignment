@@ -7,7 +7,7 @@ import { eventDataAtom } from "./Atom/EventDataAtom";
 
 export const SearchResult = () => {
   const [hoverStates, setHoverStates] = useState(Array(2).fill(false));
-  const [allEventData] = useAtom(eventDataAtom);
+  const [allEventData, setAllEventData] = useAtom(eventDataAtom);
 
   const handleMouseEnter = (index) => {
     const newHoverStates = [...hoverStates];
@@ -27,7 +27,7 @@ export const SearchResult = () => {
   };
 
   return (
-    <div className="rounded-xl w-[400px] absolute top-14 z-10 bg-slate-50 text-sm text-blue mt-2 flex-col space-y-2 max-h-60 overflow-y-scroll">
+    <div className="rounded-xl w-[400px] absolute top-[50px] z-10 bg-slate-50 text-sm text-blue mt-2 flex-col space-y-2 max-h-60 overflow-y-scroll">
       {allEventData !== null &&
         allEventData.map((event, index) => {
           return (
