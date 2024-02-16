@@ -1,24 +1,24 @@
-"use client"
-import { useEffect, useState } from "react";
+
 import { EditEvent } from "@/components/EditEvent";
 
-export default function Page({params}) {
-  const [detailEvent, setDetailEvent] = useState(null);
+export default async function Page({params}) {
 
-  useEffect(() => {
-    async function fetchData() {
-      const url = `https://eventmakers-api.fly.dev/events/${params.id}`;
-      const res = await fetch(url, { cache: "no-cache" });
-      const data = await res.json();
-      setDetailEvent(data);
-    }
+  async function getDataEvent () {
 
-    fetchData();
-  }, [params.id]);
+  const url = `https://eventmakers-api.fly.dev/events/${params.id}`;
+  const res= await fetch (url, {
+    cache:"no-cache",
+  })
+  const dataEvent = await res.json();
+  return dataEvent;
+  }
+
+  //nama const {data} menyesuaikan dengan api nya
+  const {data} = await getDataEvent();
 
   return (
     <>
-      {detailEvent && <EditEvent detailEvent={detailEvent} />}
+      <EditEvent detailEvent={data} />
     </>
   );
 }
