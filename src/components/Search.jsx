@@ -1,14 +1,22 @@
 "use client";
 import Link from "next/link";
 import { SearchResult } from "@/components/SearchResult";
-import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { eventDataAtom } from "./Atom/EventDataAtom";
 
 export const Search = ({ dataEvents }) => {
   const [allEventData, setDataEvents] = useAtom(eventDataAtom);
 
-  setDataEvents(dataEvents);
+  const handleSearchInput = (value) => {
+    console.log(value.toLowerCase());
+    let searchInput = value.toLowerCase();
+
+    let filteredDataEvents = dataEvents.filter((itemFilter) => {
+      return itemFilter.events.title.toLowerCase().includes(searchInput);
+    });
+
+    setDataEvents(filteredDataEvents);
+  };
 
   return (
     <div className="navbar bg-base-100">
@@ -21,8 +29,9 @@ export const Search = ({ dataEvents }) => {
             <input
               className="rounded-xl w-[400px] text-center"
               placeholder="Cari Event Name"
+              onChange={(e) => handleSearchInput(e.target.value)}
             />
-            <button className="btn btn-md ">Search</button>
+            <button className="btn btn-md">Search</button>
             <SearchResult />
           </div>
         </div>
