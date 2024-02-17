@@ -3,18 +3,10 @@ import { ListEvents } from "@/components/ListEvents";
 import { Search } from "@/components/Search";
 import Header from "@/components/header/page";
 import { filterDataEventsByAuthors } from "@/lib/utils";
-
-async function getDataEvents() {
-  const res = await fetch("https://eventmakers-api.fly.dev/events/", {
-    cache: "no-cache",
-  });
-
-  const dataEvents = await res.json();
-  return dataEvents;
-}
+import { getDataEvent } from "@/lib/utils";
 
 export default async function page() {
-  const { data } = await getDataEvents();
+  const { data } = await getDataEvent();
 
   const dataEventsFilter = filterDataEventsByAuthors(data);
 

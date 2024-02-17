@@ -7,3 +7,15 @@ export const filterDataEventsByAuthors = (dataEvents) => {
     );
   });
 };
+
+export const getDataEvent = async (searchQuery = "") => {
+  const res = await fetch(
+    `https://eventmakers-api.fly.dev/events/?search=${searchQuery}`,
+    {
+      cache: "no-cache",
+    }
+  );
+
+  const dataEvent = await res.json();
+  return dataEvent;
+};
