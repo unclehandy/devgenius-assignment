@@ -4,22 +4,40 @@ import { SearchResult } from "@/components/SearchResult";
 import { useState, useEffect } from "react"; // Added useEffect
 import { useAtom } from "jotai";
 import { eventDataAtom } from "./Atom/EventDataAtom";
+import { filterDataEventsByAuthors } from "@/lib/utils";
+import { getDataEvent } from "@/lib/utils";
 
-export const Search = ({ dataEvents }) => {
+export const Search = () => {
   const [allEventData, setDataEvents] = useAtom(eventDataAtom);
   const [searchInput, setSearchInput] = useState("");
 
-  // Added useEffect to handle changes in searchInput
   useEffect(() => {
-    if (searchInput === "") {
-      setDataEvents(null);
-    } else {
-      const filteredDataEvents = dataEvents.filter((itemFilter) => {
-        return itemFilter.events.title.toLowerCase().includes(searchInput);
-      });
-      setDataEvents(filteredDataEvents);
-    }
-  }, [searchInput, setDataEvents, dataEvents]);
+    const fetchData = async () => {
+      if (searchInput === "") {
+        setDataEvents(null);
+      } else {
+        try {
+          const dataEvents = await getDataEvent(searchInput);
+          const dataEventsFilteredByAuthor = filterDataEventsByAuthors(
+            dataEvents.data
+          );
+          const filteredDataEvents = dataEventsFilteredByAuthor.filter(
+            (itemFilter) => {
+              return itemFilter.events.title
+                .toLowerCase()
+                .includes(searchInput);
+            }
+          );
+          setDataEvents(filteredDataEvents);
+        } catch (error) {
+          // Handle error
+          console.error("Error fetching data:", error);
+        }
+      }
+    };
+
+    fetchData();
+  }, [searchInput, setDataEvents]);
 
   const handleSearchInput = (value) => {
     setSearchInput(value.toLowerCase());
