@@ -15,7 +15,7 @@ export default async function page() {
       <Search dataEvents={dataEventsFilter} />
       <Header />
 
-      {/* <ButtonAddEvent /> */}
+     
       <div className="px-4">
         <h1 className="text-slate-200 text-2xl mt-8 px-4 font-light ">
           Latest Cool Event

@@ -44,6 +44,7 @@ export const EditEvent = ({detailEvent}) => {
     });
 
     router.push ("/dashboard/events")
+    router.refresh();
     }
 
     return (

@@ -52,17 +52,10 @@ export default async function Page({ params }) {
             <div className="card-body">
               <h2 className="card-title">{detailEvent.data.events.title}</h2>
               <p>{detailEvent.data.events.dateTime}</p>
-              <JoinEvent idEvent={idEvent} />
-              <div className="btn btn-sm btn-primary">
-                <Link href={"/dashboard/events/"}>Kembali</Link>
-              </div>
-              <div className="border-t-2 flex gap-4 py-2 items-center ">
-                <Image
-                  src="/icon.png"
-                  width={30}
-                  height={25}
-                  alt="logo-author"
-                />
+              <JoinEvent idEvent={idEvent}/>
+              <div className="btn btn-sm btn-primary"><Link href={"/events/"}>Kembali</Link></div>
+              <div className="border-t-2 flex gap-4 py-2 items-center ">              
+                <Image src="/icon.png" width={30} height={25} alt="logo-author" />
                 <div>
                   <p className="text-gray-400">Diselenggarakan Oleh</p>
                   <p> {detailEvent.data.events.author}</p>

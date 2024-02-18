@@ -72,7 +72,7 @@ export const DataEventAdmin = ({ dataEvents }) => {
                 {dataEventsFilter.map((item, index) => {
                     return (
 
-                        <div  key={item.events.id} className="card  bg-slate-800 shadow border border-slate-900 hover:scale-105 transition duration-500 overflow-hidden " key={item.events.id}>
+                        <div  key={item.events.id} className="card  bg-slate-800 shadow border border-slate-900 hover:scale-105 transition duration-500 overflow-hidden ">
                             <div className='w-full h-40 overflow-hidden '>
                                 <img
                                     src={item.events.image}
@@ -81,7 +81,7 @@ export const DataEventAdmin = ({ dataEvents }) => {
                             </div>
                             <div className="space-y-2 p-3">
                                 <h2 className="card-title text-amber-400">{shortenTitle(item.events.title, 20)}</h2>
-                                <p> {item.events.dateTime} {item.events.id}</p>
+                                
                                 <div className="card-actions justify-end">
                                         <Link href={`/dashboard/events/edit/${item.events.id}`}> 
                                             <button className="btn btn-info btn-sm">Edit</button>
