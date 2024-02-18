@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useAtom } from "jotai";
@@ -37,10 +38,13 @@ export const SearchResult = () => {
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={() => handleMouseLeave(index)}
               >
-                <img
+                <Image
                   src={event.events.image}
+                  width={80}
+                  height={64}
+                  alt={event.events.title}
                   className="w-20 h-16 bg-blue-300 rounded-lg object-cover"
-                ></img>
+                />
                 <div className="flex-col space-y-2 basis-1/2">
                   <p className="text-black text-sm line-clamp-1">
                     {event.events.title}

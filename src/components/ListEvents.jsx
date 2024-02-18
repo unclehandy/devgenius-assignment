@@ -23,8 +23,11 @@ export const ListEvents = ({ dataEvents }) => {
               className="card  bg-slate-800 shadow border border-slate-900 hover:scale-105 transition duration-500 overflow-hidden "
             >
               <div className="w-full h-40 overflow-hidden ">
-                <img
+                <Image
                   src={item.events.image}
+                  alt="Picture of the author"
+                  width={500}
+                  height={400}
                   className="w-auto h-full  object-cover"
                 />
               </div>
